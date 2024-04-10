@@ -5,58 +5,79 @@ import static org.assertj.core.api.Assertions.*;
 import com.example.demo.domain.Member;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class MemberMemoryRepositoryTest {
 
-  MemberMemoryRepository repository = new MemberMemoryRepository();
+  MemberMemoryRepository memberRepository;
+
+  @BeforeEach
+  void beforeEach() {
+    memberRepository = new MemberMemoryRepository();
+  }
 
   @AfterEach
   void afterEach() {
-    repository.flush();
+    memberRepository.flush();
   }
 
   @Test
   void save() {
+    // given
     Member member = new Member();
     member.setName("member");
-    Member savedMember = repository.save(member);
 
+    // when
+    Member savedMember = memberRepository.save(member);
+
+    // then
     assertThat(member).isEqualTo(savedMember);
   }
 
   @Test
   void findById() {
+    // given
     Member member = new Member();
     member.setName("member");
-    repository.save(member);
+    memberRepository.save(member);
 
-    Member savedMember = repository.findById(member.getId()).get();
+    // when
+    Member savedMember = memberRepository.findById(member.getId()).get();
+
+    // then
     assertThat(member).isEqualTo(savedMember);
   }
 
   @Test
   void findByName() {
+    // given
     Member member = new Member();
     member.setName("member");
-    repository.save(member);
+    memberRepository.save(member);
 
-    Member savedMember = repository.findByname("member").get();
+    // when
+    Member savedMember = memberRepository.findByName("member").get();
+
+    // then
     assertThat(member).isEqualTo(savedMember);
   }
 
   @Test
   void findAll() {
+    // given
     Member memberA = new Member();
     memberA.setName("memberA");
-    repository.save(memberA);
+    memberRepository.save(memberA);
 
     Member memberB = new Member();
     memberB.setName("memberB");
-    repository.save(memberB);
+    memberRepository.save(memberB);
 
-    List<Member> members = repository.findAll();
+    // when
+    List<Member> members = memberRepository.findAll();
 
+    // then
     assertThat(members).hasSize(2);
   }
 }

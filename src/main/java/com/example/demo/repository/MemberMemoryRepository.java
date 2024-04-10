@@ -31,7 +31,7 @@ public class MemberMemoryRepository implements MemberRepository {
   }
 
   @Override
-  public Optional<Member> findByname(String name) {
+  public Optional<Member> findByName(String name) {
     return store
       .values()
       .stream()
