@@ -6,14 +6,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class MemberMemoryRepository implements MemberRepository {
 
   private static Map<Long, Member> store = new HashMap<>();
   private static long sequence = 0L;
 
   public void flush() {
-    store = new HashMap<>();
+    store.clear();
     sequence = 0L;
   }
 
