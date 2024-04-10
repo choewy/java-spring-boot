@@ -21,3 +21,7 @@ chmod 755 ./h2/bin/h2.sh
 
 - JDBC URL : jdbc:h2:tcp://localhost/~/h2
 
+## TODO
+
+- JDBC template
+- JPA로 변환
