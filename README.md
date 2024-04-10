@@ -9,9 +9,11 @@
 
 ```zsh
 cd ~
-chmod 755 ~/Downloads/h2/bin/h2.sh
 
-~/Downloads/h2/bin/h2.sh
+mv ~/Downloads/h2 .
+chmod 755 ./h2/bin/h2.sh
+
+./h2/bin/h2.sh
 ```
 
 파일에 직접 접근하는 경우 여러 애플리케이션 간 충돌이 발생할 수 있음
@@ -19,10 +21,3 @@ chmod 755 ~/Downloads/h2/bin/h2.sh
 
 - JDBC URL : jdbc:h2:tcp://localhost/~/h2
 
-But, 편하게 이 프로젝트에서만 이용하는 용도로 아래와 같이 설정했음
-
-- JDBC URL : jdbc:h2:./h2/temp
-
-```zsh
-./h2/h2.sh
-```
