@@ -7,10 +7,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class MemoryMemberRepository implements MemberRepository {
+public class MemberMemoryRepository implements MemberRepository {
 
   private static Map<Long, Member> store = new HashMap<>();
   private static long sequence = 0L;
+
+  public void flush() {
+    store = new HashMap<>();
+    sequence = 0L;
+  }
 
   @Override
   public Member save(Member member) {
