@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.repository.MemberJDBCRepository;
+import com.example.demo.repository.MemberJDBCTemplateRepository;
 import com.example.demo.repository.MemberRepository;
 import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
@@ -17,6 +17,6 @@ public class SpringConfig {
 
   @Bean
   MemberRepository memberRepository() {
-    return new MemberJDBCRepository(dataSource);
+    return new MemberJDBCTemplateRepository(dataSource);
   }
 }
