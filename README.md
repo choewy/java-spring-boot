@@ -21,11 +21,14 @@ chmod 755 ./h2/bin/h2.sh
 
 - JDBC URL : jdbc:h2:tcp://localhost/~/h2
 
-## CAUTION
+## Spring JPAData
 
-- Spring JPAData는 JPA를 편리하게 활용할 수 있도록 도와주는 라이브러리일 뿐이기 떄문에 JPA에 대해서 깊게 공부한 다음 다루는 것을 권장(본질은 JPA)
+- Spring JPAData는 JPA를 편리하게 활용할 수 있도록 도와주는 라이브러리일 뿐이기 떄문에 JPA에 대해서 깊게 공부한 다음 다루는 것을 권장
 
-## TODO
+> 결국 Spring JPAData의 본질은 JPA이기 떄문임.
 
-- JDBC template
-- JPA로 변환
+## AOP
+
+- AOP는 ComponentScan 방식을 적용해도 되고, 직접 Been으로 등록해도 되나, Been으로 직접 등록해주는 방식을 더 선호
+
+> Been에 직접 등록하면 제3자가 파악하기 훨씬 수월하기 때문임.
