@@ -4,26 +4,21 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.example.demo.domain.Member;
-import com.example.demo.repository.MemberMemoryRepository;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import com.example.demo.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
+@SpringBootTest
+@Transactional
 class MemberServiceTest {
 
-  MemberMemoryRepository memberRepository;
+  @Autowired
+  MemberRepository memberRepository;
+
+  @Autowired
   MemberService memberService;
-
-  @BeforeEach
-  void beforeEach() {
-    memberRepository = new MemberMemoryRepository();
-    memberService = new MemberService(memberRepository);
-  }
-
-  @AfterEach
-  void afterEach() {
-    memberRepository.flush();
-  }
 
   @Test
   void join() {
