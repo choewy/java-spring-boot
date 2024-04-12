@@ -1,22 +1,22 @@
 package com.example.demo;
 
-import com.example.demo.repository.MemberJDBCTemplateRepository;
+import com.example.demo.repository.MemberJPARepository;
 import com.example.demo.repository.MemberRepository;
-import javax.sql.DataSource;
+import jakarta.persistence.EntityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SpringConfig {
 
-  private final DataSource dataSource;
+  private final EntityManager em;
 
-  public SpringConfig(DataSource dataSource) {
-    this.dataSource = dataSource;
+  public SpringConfig(EntityManager em) {
+    this.em = em;
   }
 
   @Bean
   MemberRepository memberRepository() {
-    return new MemberJDBCTemplateRepository(dataSource);
+    return new MemberJPARepository(em);
   }
 }
