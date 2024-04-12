@@ -21,6 +21,10 @@ chmod 755 ./h2/bin/h2.sh
 
 - JDBC URL : jdbc:h2:tcp://localhost/~/h2
 
+## CAUTION
+
+- Spring JPAData는 JPA를 편리하게 활용할 수 있도록 도와주는 라이브러리일 뿐이기 떄문에 JPA에 대해서 깊게 공부한 다음 다루는 것을 권장(본질은 JPA)
+
 ## TODO
 
 - JDBC template

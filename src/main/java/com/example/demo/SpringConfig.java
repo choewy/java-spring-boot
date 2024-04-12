@@ -1,22 +1,21 @@
 package com.example.demo;
 
-import com.example.demo.repository.MemberJPARepository;
 import com.example.demo.repository.MemberRepository;
-import jakarta.persistence.EntityManager;
+import com.example.demo.service.MemberService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SpringConfig {
 
-  private final EntityManager em;
+  private final MemberRepository memberRepository;
 
-  public SpringConfig(EntityManager em) {
-    this.em = em;
+  public SpringConfig(MemberRepository memberRepository) {
+    this.memberRepository = memberRepository;
   }
 
   @Bean
-  MemberRepository memberRepository() {
-    return new MemberJPARepository(em);
+  MemberService memberService() {
+    return new MemberService(memberRepository);
   }
 }
